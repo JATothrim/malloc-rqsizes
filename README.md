@@ -1,20 +1,18 @@
 # malloc-rqsizes
 malloc_stats is a shared library that wraps C library malloc().
-The wrapper collects request size counts (amount of bytes per malloc call) for debugging.
-This project has NO guarantees and/or warranty for usability/fittness for ANY particular purpose.
+The wrapper collects request size counts (amount of bytes per malloc call) for debugging.<br>
 
-libmalloc_stats.so is LD_PRELOAD'ed into victim process to collect data:
+DISCLAIMER: This project has NO guarantees and/or usability/fitness for ANY particular purpose.<br>
 
-env LD_PRELOAD=./libmalloc_stats.so <program>
+libmalloc_stats.so is LD_PRELOAD'ed into victim process to collect data:<br>
 
-when <program> exits, /tmp/malloc-stats.pid.<PID> file should have been created.
-Next, run 
+<code>env LD_PRELOAD=./libmalloc_stats.so <i>program</i></code><br>
 
-format_stats /tmp/malloc-stats.pid.<PID>
+when <i>program</i> exits, /tmp/malloc-stats.pid.<i>PID</i> file should have been created.<br>
+Next, run <br>
+<code>format_stats /tmp/malloc-stats.pid.<i>PID</i></code><br>
+to print the malloc.stats contents to stdout.<br>
 
-to print the malloc.stats contents to stdout.
-malloc_stats sorts internally by request size, but sorting the output by occurences:
-
-format_stats /tmp/malloc-stats.pid.<PID> | sort -gk3
-
+malloc_stats sorts internally by request size, but sorting the output by occurences:<br>
+<code>format_stats /tmp/malloc-stats.pid.<i>PID</i> | sort -gk3</code><br>
 produces more usable information.
