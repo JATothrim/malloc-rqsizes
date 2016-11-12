@@ -5,14 +5,14 @@
 /* stats_format */
 static const size_t RECORD_SZ = sizeof(int)*2;
 
-int main()
+int main(int argc, char * argv[])
 {
 	FILE * f; 
 	int record[2];
 	
-	printf("Reading malloc.stats ...\n");
+	printf("Reading '%s' ...\n", argv[1]);
 	
-	f = fopen("malloc.stats", "r");
+	f = fopen(argv[1], "r");
 	if(!f)
 		exit(1);
 	
