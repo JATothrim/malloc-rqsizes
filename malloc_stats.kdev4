@@ -1,0 +1,4 @@
+[Project]
+Name=malloc_stats
+Manager=KDevCMakeManager
+VersionControl=kdevgit
